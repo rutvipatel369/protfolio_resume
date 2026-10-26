@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Rutvi Patel — MCA Student, Full-Stack Web Developer and Software Testing enthusiast.">
+  <title>Rutvi Patel | Full-Stack Developer Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: #121620;
+      --card2: #171c28;
+      --text: #f4f6fb;
+      --muted: #aab2c2;
+      --line: #252c3a;
+      --accent: #8b7cff;
+      --accent2: #42d9c8;
+      --shadow: 0 20px 60px rgba(0, 0, 0, .28);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at 80% 10%, rgba(139, 124, 255, .13), transparent 30%), var(--bg);
+      color: var(--text);
+      line-height: 1.6
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      background: rgba(11, 13, 18, .76);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .navin {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: .5px
+    }
+
+    .logo span {
+      color: var(--accent)
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: .93rem
+    }
+
+    .navlinks a:hover {
+      color: white
+    }
+
+    .menu {
+      display: none;
+      background: none;
+      border: 0;
+      color: white;
+      font-size: 24px
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 70px
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 70px;
+      align-items: center
+    }
+
+    .badge {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #d5d9e5;
+      background: rgba(255, 255, 255, .03);
+      font-size: .88rem
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent2);
+      box-shadow: 0 0 14px var(--accent2)
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.4rem);
+      line-height: .95;
+      letter-spacing: -.06em;
+      margin: 22px 0
+    }
+
+    .gradient {
+      background: linear-gradient(100deg, #fff 10%, #aaa1ff 55%, #63e6d6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 680px
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 30px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      transition: .2s
+    }
+
+    .btn.primary {
+      background: var(--text);
+      color: #0b0d12;
+      border-color: var(--text)
+    }
+
+    .btn:hover {
+      transform: translateY(-2px)
+    }
+
+    .profile-card {
+      background: linear-gradient(145deg, var(--card2), var(--card));
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 32px;
+      box-shadow: var(--shadow)
+    }
+
+    .avatar {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #0b0d12;
+      margin-bottom: 25px
+    }
+
+    .stat {
+      padding: 17px 0;
+      border-top: 1px solid var(--line)
+    }
+
+    .stat b {
+      display: block
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    section {
+      padding: 100px 0
+    }
+
+    .section-label {
+      color: var(--accent2);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      margin: 12px 0 18px;
+      letter-spacing: -.04em
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 700px
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px
+    }
+
+    .card {
+      background: rgba(18, 22, 32, .78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 30px
+    }
+
+    .timeline:before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--line)
+    }
+
+    .titem {
+      position: relative;
+      padding: 0 0 35px 34px
+    }
+
+    .titem:before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 7px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(139, 124, 255, .1)
+    }
+
+    .titem h3 {
+      margin: 0 0 3px
+    }
+
+    .meta {
+      color: var(--accent2);
+      font-size: .88rem
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 30px
+    }
+
+    .skill {
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 16px
+    }
+
+    .skill b {
+      display: block;
+      margin-bottom: 5px
+    }
+
+    .skill span {
+      color: var(--muted);
+      font-size: .88rem
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 30px
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden
+    }
+
+    .project .num {
+      font-size: .8rem;
+      color: var(--accent2);
+      font-weight: 800
+    }
+
+    .project h3 {
+      font-size: 1.35rem;
+      margin: 12px 0 8px
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px
+    }
+
+    .tag {
+      font-size: .75rem;
+      color: #dfe3ed;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 9px
+    }
+
+    .certs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 30px
+    }
+
+    .cert {
+      border-left: 3px solid var(--accent);
+      padding: 17px 18px;
+      background: var(--card);
+      border-radius: 0 14px 14px 0
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 30px
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 25px
+    }
+
+    .contact-item {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card)
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: .7s ease
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: none
+    }
+
+    @media(max-width:800px) {
+      .navlinks {
+        display: none
+      }
+
+      .menu {
+        display: block
+      }
+
+      .navlinks.open {
+        display: flex;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: #0b0d12;
+        padding: 20px 4%;
+        border-bottom: 1px solid var(--line)
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact {
+        grid-template-columns: 1fr
+      }
+
+      .skills {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .projects,
+      .certs {
+        grid-template-columns: 1fr
+      }
+
+      .hero {
+        padding-top: 120px
+      }
+
+      .profile-card {
+        max-width: 520px
+      }
+    }
+
+    @media(max-width:480px) {
+      .skills {
+        grid-template-columns: 1fr
+      }
+
+      section {
+        padding: 75px 0
+      }
+
+      h1 {
+        font-size: 3.4rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="container navin">
+      <a class="logo" href="#home">R<span>P</span></a>
+      <button class="menu" aria-label="Open menu">☰</button>
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a>
+        <a href="#projects">Projects</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="badge"><span class="dot"></span> Open to learning & opportunities</div>
+          <h1>Rutvi<br><span class="gradient">Patel.</span></h1>
+          <p><strong>Full-Stack Web Developer · MCA Student · Software Testing Enthusiast</strong></p>
+          <p>I build user-focused web and mobile applications and enjoy turning ideas into reliable, practical software.
+            My foundation spans programming, databases, web development, Android, automation testing and API testing.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">View My Work ↓</a>
+            <a class="btn" href="#contact">Let's Connect</a>
+          </div>
+        </div>
+        <div class="profile-card reveal">
+          <div class="avatar">RP</div>
+          <h3>Developer Profile</h3>
+          <p class="muted">Surat, Gujarat, India</p>
+          <div class="stat"><b>Full-Stack</b><span>Frontend + Backend + Database</span></div>
+          <div class="stat"><b>Testing</b><span>Selenium WebDriver + Postman</span></div>
+          <div class="stat"><b>Mobile</b><span>Android development with Kotlin</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-label">01 / About</div>
+        <div class="about-grid">
+          <div class="reveal">
+            <h2>Building with curiosity and purpose.</h2>
+          </div>
+          <div class="card reveal">
+            <p>I am a computer applications graduate with a strong foundation in programming, web development and
+              software testing. I enjoy learning modern technologies and creating efficient, scalable and user-friendly
+              applications.</p>
+            <p class="muted">My interests include full-stack development, mobile applications, databases, software
+              quality and practical problem solving.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-label">02 / Education</div>
+        <h2>Academic journey</h2>
+        <div class="timeline">
+          <div class="titem reveal">
+            <h3>Master of Computer Applications (MCA)</h3>
+            <div class="meta">CHARUSAT University · Present</div>
+            <p class="muted">Currently developing advanced skills in software development, databases, web technologies
+              and application engineering.</p>
+          </div>
+          <div class="titem reveal">
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <div class="meta">CHARUSAT University, Changa, Anand · 2023–2026</div>
+            <p class="muted">Completed — awaiting results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-label">03 / Skills</div>
+        <h2>Technical toolkit</h2>
+        <p class="lead">A practical mix of development, database and quality-assurance skills.</p>
+        <div class="skills">
+          <div class="skill reveal"><b>Programming</b><span>C · C++ · Java · Python</span></div>
+          <div class="skill reveal"><b>Web Development</b><span>HTML · CSS · JavaScript · PHP</span></div>
+          <div class="skill reveal"><b>Database</b><span>MySQL · Oracle · SQL · PL/SQL</span></div>
+          <div class="skill reveal"><b>Testing</b><span>Manual Testing · Test Cases · Selenium · Postman</span></div>
+          <div class="skill reveal"><b>Mobile</b><span>Android · Kotlin · Firebase</span></div>
+          <div class="skill reveal"><b>Server / Tools</b><span>Apache · Firebase · Postman</span></div>
+          <div class="skill reveal"><b>Core Knowledge</b><span>Database Fundamentals · Data Science Foundations</span>
+          </div>
+          <div class="skill reveal"><b>Soft Skills</b><span>Problem Solving · Teamwork · Communication</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-label">04 / Projects</div>
+        <h2>Things I've built</h2>
+        <div class="projects">
+          <article class="card project reveal">
+            <div class="num">01</div>
+            <h3>Doctor Appointment System</h3>
+            <p class="muted">Android application for booking doctor appointments with Firebase real-time data and a
+              user-friendly interface.</p>
+            <div class="tags"><span class="tag">Android</span><span class="tag">Kotlin</span><span
+                class="tag">Firebase</span></div>
+          </article>
+          <article class="card project reveal">
+            <div class="num">02</div>
+            <h3>Hotel Management System</h3>
+            <p class="muted">Dynamic web application with booking functionality, admin panel and customer records backed
+              by a database.</p>
+            <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span
+                class="tag">JavaScript</span><span class="tag">Apache</span></div>
+          </article>
+          <article class="card project reveal">
+            <div class="num">03</div>
+            <h3>Software Testing Projects</h3>
+            <p class="muted">Designed test cases, checklists and control-flow diagrams, with automation and API testing
+              practice.</p>
+            <div class="tags"><span class="tag">Selenium</span><span class="tag">Postman</span><span class="tag">Manual
+                Testing</span></div>
+          </article>
+          <article class="card project reveal">
+            <div class="num">04</div>
+            <h3>Personal Portfolio Website</h3>
+            <p class="muted">Responsive portfolio experience focused on clean UI, structured information and
+              mobile-friendly design.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span
+                class="tag">JavaScript</span></div>
+          </article>
+          <article class="card project reveal">
+            <div class="num">05</div>
+            <h3>CRUD Operations using PL/SQL</h3>
+            <p class="muted">Database operations with a focus on structured queries and data integrity.</p>
+            <div class="tags"><span class="tag">Oracle</span><span class="tag">SQL</span><span class="tag">PL/SQL</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="container">
+        <div class="section-label">05 / Certifications</div>
+        <h2>Continuous learning</h2>
+        <div class="certs">
+          <div class="cert reveal">Apply API Testing Fundamentals Using Postman</div>
+          <div class="cert reveal">Foundations of Software Testing and Validation</div>
+          <div class="cert reveal">Python 101: Develop Your First Python Program</div>
+          <div class="cert reveal">HTML/CSS Certification — Coursera</div>
+          <div class="cert reveal">UI/UX Certification — Coursera</div>
+          <div class="cert reveal">PHP Certification — Coursera</div>
+          <div class="cert reveal">Cyber Security Certification — Coursera</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-label">06 / Contact</div>
+        <div class="contact">
+          <div class="reveal">
+            <h2>Let's build something useful.</h2>
+            <p class="lead">Whether it is a web application, testing workflow or a new project idea, I'm interested in
+              learning, building and collaborating.</p>
+          </div>
+          <div class="contact-list reveal">
+            <a class="contact-item" href="mailto:rutvipatel805@gmail.com"><b>Email</b><br><span
+                class="muted">rutvipatel805@gmail.com</span></a>
+            <a class="contact-item" href="tel:+919313266087"><b>Phone</b><br><span class="muted">+91
+                9313266087</span></a>
+            <div class="contact-item"><b>Location</b><br><span class="muted">Surat, Gujarat, India</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Rutvi Patel · Designed & built with HTML, CSS and JavaScript.</div>
+  </footer>
+  <script>
+    document.querySelector('#year').textContent = new Date().getFullYear();
+    const menu = document.querySelector('.menu'), links = document.querySelector('.navlinks');
+    menu.addEventListener('click', () => links.classList.toggle('open'));
+    document.querySelectorAll('.navlinks a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+    const observer = new IntersectionObserver(entries => entries.forEach(e => {if (e.isIntersecting) e.target.classList.add('show')}), {threshold: .12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
